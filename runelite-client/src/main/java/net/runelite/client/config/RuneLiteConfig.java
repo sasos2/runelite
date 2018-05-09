@@ -184,7 +184,18 @@ public interface RuneLiteConfig extends Config
 		description = "Configures what font type is used for in-game overlays such as player name, ground items, etc.",
 		position = 30
 	)
-	default FontType fontType()
+	default FontType getDynamicFontType()
+	{
+		return FontType.SMALL;
+	}
+
+	@ConfigItem(
+		keyName = "tooltipFontType",
+		name = "Tooltip Overlay Font",
+		description = "Configures what font type is used for tooltip overlays such as menu actions, item stats, etc.",
+		position = 10
+	)
+	default FontType getTooltipFontType()
 	{
 		return FontType.SMALL;
 	}
@@ -193,7 +204,11 @@ public interface RuneLiteConfig extends Config
 		keyName = "infoBoxVertical",
 		name = "Display infoboxes vertically",
 		description = "Toggles the infoboxes to display vertically",
+<<<<<<< HEAD
 		position = 31
+=======
+		position = 11
+>>>>>>> pr/1999
 	)
 	default boolean infoBoxVertical()
 	{
@@ -204,10 +219,36 @@ public interface RuneLiteConfig extends Config
 		keyName = "infoBoxWrap",
 		name = "Infobox wrap count",
 		description = "Configures the amount of infoboxes shown before wrapping",
+<<<<<<< HEAD
 		position = 32
+=======
+		position = 12
+>>>>>>> pr/1999
 	)
 	default int infoBoxWrap()
 	{
 		return 4;
+	}
+
+	@ConfigItem(
+		keyName = "containInScreen",
+		name = "Contain in screen",
+		description = "Makes the client stay contained in the screen when attempted to move out of it.<br>Note: Only works if custom chrome is enabled.",
+		position = 13
+	)
+	default boolean containInScreen()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "rememberScreenBounds",
+		name = "Remember client position",
+		description = "Save the position and size of the client after exiting",
+		position = 14
+	)
+	default boolean rememberScreenBounds()
+	{
+		return true;
 	}
 }
